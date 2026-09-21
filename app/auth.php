@@ -1,16 +1,18 @@
 <?php
 session_start();
 
-$servername = getenv('DB_HOST') ?: "127.0.0.1";
-$username = getenv('DB_USER') ?: "root";
-$password = getenv('DB_PASSWORD') ?: "";
-$dbname = getenv('DB_NAME') ?: "vuelos";
-$port = getenv('DB_PORT') ?: 3306;
+$servername = getenv('DB_HOST') ?: (getenv('MYSQLHOST') ?: "127.0.0.1");
+$username = getenv('DB_USER') ?: (getenv('MYSQLUSER') ?: "root");
+$password = getenv('DB_PASSWORD') ?: (getenv('MYSQLPASSWORD') ?: "");
+$dbname = getenv('DB_NAME') ?: (getenv('MYSQLDATABASE') ?: "vuelos");
+$port = getenv('DB_PORT') ?: (getenv('MYSQLPORT') ?: 3306);
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'error', 'message' => 'No se pudo conectar con la base de datos.']);
+    exit;
 }
 
 $conn->set_charset("utf8mb4");

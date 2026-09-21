@@ -57,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     showErrors(registerForm, data.errors);
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(() => {
+                showErrors(registerForm, { username: 'No se pudo conectar con el servidor.' });
+            });
         });
     }
 
@@ -83,7 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     showErrors(loginForm, data.errors);
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(() => {
+                showErrors(loginForm, { username: 'No se pudo conectar con el servidor.' });
+            });
         });
     }
 
