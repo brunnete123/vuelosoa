@@ -1,0 +1,13 @@
+# Secretos y configuracion local
+.env
+*.local
+
+# Datos y archivos generados
+mysql-data/
+db_data/
+*.log
+
+# Sistema y editor
+.DS_Store
+Thumbs.db
+.vscode/

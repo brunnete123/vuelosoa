@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Vuelos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="main-menu" aria-label="Menú principal">
+        <span class="brand">VuelosSOA</span>
+        <span class="user-session" data-user-name></span>
+        <a href="search.html" class="active">Buscar vuelos</a>
+        <a href="reservations.html">Mis reservas</a>
+        <button type="button" class="logout-button" data-logout>Cerrar sesión</button>
+    </nav>
+    <h1>Buscar Vuelos</h1>
+    <form id="searchForm">
+        <label for="origin">Origen:</label>
+        <input type="text" id="origin" name="origin" placeholder="Opcional"><br><br>
+        <label for="destination">Destino:</label>
+        <input type="text" id="destination" name="destination" placeholder="Opcional"><br><br>
+        <div class="search-actions">
+            <button type="submit">Filtrar</button>
+            <button type="button" id="showAllFlights">Ver todos los vuelos</button>
+        </div>
+    </form>
+    <div id="results"><p>Cargando vuelos...</p></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
