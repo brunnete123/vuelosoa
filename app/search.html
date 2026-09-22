@@ -17,9 +17,26 @@
     <h1>Buscar Vuelos</h1>
     <form id="searchForm">
         <label for="origin">Origen:</label>
-        <input type="text" id="origin" name="origin" placeholder="Opcional"><br><br>
+        <select id="origin" name="origin">
+            <option value="">Todas las ciudades</option>
+            <option value="Ciudad Juárez">Ciudad Juárez</option>
+            <option value="Ciudad de México">Ciudad de México</option>
+            <option value="Guadalajara">Guadalajara</option>
+            <option value="Monterrey">Monterrey</option>
+            <option value="Cancún">Cancún</option>
+            <option value="Tijuana">Tijuana</option>
+        </select><br><br>
         <label for="destination">Destino:</label>
-        <input type="text" id="destination" name="destination" placeholder="Opcional"><br><br>
+        <select id="destination" name="destination">
+            <option value="">Todas las ciudades</option>
+            <option value="Ciudad de México">Ciudad de México</option>
+            <option value="Guadalajara">Guadalajara</option>
+            <option value="Cancún">Cancún</option>
+            <option value="Monterrey">Monterrey</option>
+            <option value="Tijuana">Tijuana</option>
+            <option value="Mérida">Mérida</option>
+            <option value="Oaxaca">Oaxaca</option>
+        </select><br><br>
         <div class="search-actions">
             <button type="submit">Filtrar</button>
             <button type="button" id="showAllFlights">Ver todos los vuelos</button>
