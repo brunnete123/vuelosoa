@@ -12,6 +12,7 @@ Sistema de gestión de reservas de vuelos desarrollado con PHP, MySQL, HTML, CSS
 ## Requisitos
 
 - Docker Desktop instalado y ejecutándose
+- Cuenta de ngrok y ngrok instalado y autenticado
 - Git
 
 ## Inicio rápido
@@ -29,9 +30,24 @@ docker compose up -d --build
 http://localhost:8085/
 ```
 
-4. Para detener la aplicación:
+4. Para publicar la aplicación mediante ngrok, abre otra terminal y ejecuta:
 
 ```powershell
+ngrok http 8085
+```
+
+5. Abre en el navegador la URL HTTPS que ngrok muestra, por ejemplo:
+
+```text
+https://xxxx-xxxx.ngrok-free.app/
+```
+
+La URL pública cambia cada vez que se reinicia el túnel. La terminal donde se ejecuta ngrok debe permanecer abierta mientras se usa la aplicación.
+
+6. Para detener la aplicación y el túnel:
+
+```powershell
+Ctrl+C
 docker compose down
 ```
 
@@ -125,4 +141,4 @@ Contraseña: 123456789
 
 ## Nota importante
 
-Este proyecto está preparado para ejecutarse de forma local con Docker. Si later se despliega en un entorno externo, se deben configurar las variables de entorno de la base de datos de acuerdo con ese servicio.
+Este proyecto se ejecuta con Docker y se publica externamente mediante un túnel ngrok hacia el puerto local `8085`. La base de datos permanece dentro de Docker y no se expone a través de ngrok.
